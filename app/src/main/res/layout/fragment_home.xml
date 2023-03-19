@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:scrollbars="vertical"
+    tools:visibility="visible">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_background"
+        tools:context=".ui.home.HomeFragment">
+
+
+        <android.support.constraint.Group
+            android:id="@+id/group_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="progressBar_loading,textView_loading">
+
+
+        </android.support.constraint.Group>
+
+        <ProgressBar
+            android:id="@+id/progressBar_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="320dp"
+            android:layout_marginBottom="320dp"
+            android:foregroundTint="@color/button_color"
+            android:indeterminate="true"
+            android:progressTint="@color/button_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/loading_info"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/progressBar_loading"
+            app:layout_constraintStart_toStartOf="@+id/progressBar_loading"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar_loading" />
+
+        <android.support.constraint.Group
+            android:id="@+id/group_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="editText_search,button_search,recyclerView_categories,textView_latest_list_caption,recyclerView_latest,textView_flash_sale_list_caption,recyclerView_flash_sale,textView_brand_list_caption,recyclerView_brands,textView_latest_view_all,textView_flash_sale_view_all,textView_brands_view_all"
+            tools:visibility="visible" />
+
+
+        <EditText
+            android:id="@+id/editText_search"
+            style="@style/EditTextDefault"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="55dp"
+            android:background="@drawable/search_input_text_shape"
+            android:hint="@string/search_hint"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/search_input_text_hint"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/ic_search"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            app:layout_constraintBottom_toBottomOf="@+id/editText_search"
+            app:layout_constraintEnd_toEndOf="@+id/editText_search"
+            app:layout_constraintTop_toTopOf="@+id/editText_search" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView_categories"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="12dp"
+            android:scrollbars="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_search">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/textView_latest_list_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/latest_list_caption"
+            android:textAlignment="viewStart"
+            android:textColor="@color/list_caption_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView_categories" />
+
+        <TextView
+            android:id="@+id/textView_latest_view_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/view_all_button"
+            android:textAlignment="viewStart"
+            android:textColor="@color/view_all_button_color"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_latest_list_caption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView_latest_list_caption" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView_latest"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginTop="2dp"
+            android:padding="2dp"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_latest_list_caption" />
+
+        <TextView
+            android:id="@+id/textView_flash_sale_list_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/flash_sale_list_caption"
+            android:textAlignment="viewStart"
+            android:textColor="@color/list_caption_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView_latest" />
+
+        <TextView
+            android:id="@+id/textView_flash_sale_view_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/view_all_button"
+            android:textAlignment="viewStart"
+            android:textColor="@color/view_all_button_color"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_flash_sale_list_caption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView_flash_sale_list_caption" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView_flash_sale"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginTop="2dp"
+            android:padding="2dp"
+            android:scrollbars="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_flash_sale_list_caption">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/textView_brand_list_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/brands_list_caption"
+            android:textAlignment="viewStart"
+            android:textColor="@color/list_caption_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView_flash_sale" />
+
+        <TextView
+            android:id="@+id/textView_brands_view_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/view_all_button"
+            android:textAlignment="viewStart"
+            android:textColor="@color/view_all_button_color"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_brand_list_caption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView_brand_list_caption" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView_brands"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginTop="2dp"
+            android:padding="2dp"
+            android:scrollbars="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_brand_list_caption" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

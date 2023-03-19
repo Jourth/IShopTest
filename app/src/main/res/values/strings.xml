@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">IShopTest</string>
+
+    <string name="sign_in_caption">Sign in</string>
+    <string name="first_name_hint">First name</string>
+    <string name="last_name_hint">Last name</string>
+    <string name="email_hint">EMail</string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="sign_in_google">Sign in with Google</string>
+    <string name="sign_in_apple">Sign in with Apple</string>
+
+    <string name="have_account_text">Already have an account?</string>
+
+    <string name="log_in_button">Log in</string>
+
+    <string name="loading_info">Getting data...</string>
+
+    <string name="search_hint">What are you looking for?</string>
+
+    <string name="latest_list_caption">Latest</string>
+    <string name="flash_sale_list_caption">Flash sale</string>
+    <string name="brands_list_caption">Brands</string>
+    <string name="view_all_button">View all</string>
+    <string name="discount_postfix">% off</string>
+
+    <string name="profile_caption">Profile</string>
+    <string name="change_photo">Change photo</string>
+    <string name="upload_item_button">Upload item</string>
+    <string name="profile_trade_store_item">Trade store</string>
+    <string name="profile_payment_method">Payment method</string>
+    <string name="profile_balance">Balance</string>
+    <string name="profile_trade_history">Trade history</string>
+    <string name="profile_restore_purchase">Restore purchase</string>
+    <string name="profile_help">Help</string>
+    <string name="profile_log_out">Log out</string>
+
+    <string name="user_is_registered_message">User is already registered!</string>
+    <string name="cannot_create_user_message">Cannot create a user!</string>
+    <string name="not_valid_email_message">Email address in invalid. Check it and try again!</string>
+    <string name="name_is_empty_message">Name is empty. Check it and try again!</string>
+    <string name="login_failed_message">Login failed! Check login and password and try again!</string>
+
+    <string name="login_caption">Welcome back</string>
+    <string name="password_hint">Password</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_likes">Likes</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="app_colored_caption"></string>
+    <string name="location">Location</string>
+
+    <string name="need_read_storage_permission">You need to give permission to read external storage device!</string>
+
+
+    <string name="category_phones">Phones</string>
+    <string name="category_headphones">Headphones</string>
+    <string name="category_games">Games</string>
+    <string name="category_cars">Cars</string>
+    <string name="category_furniture">Furniture</string>
+    <string name="category_kids">Kids</string>
+    <string name="title_activity_main2">MainActivity2</string>
+
+    <string name="navigation_drawer_open"></string>
+    <string name="navigation_drawer_close"></string>
+
+
+</resources>

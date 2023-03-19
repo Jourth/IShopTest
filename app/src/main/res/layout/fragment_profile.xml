@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/app_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_background"
+        tools:context=".ui.SignInActivity">
+
+        <TextView
+            android:id="@+id/textView_profile_caption"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:elevation="2dp"
+            android:text="@string/profile_caption"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView_profile_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:elevation="1dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/profile_image_test"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_profile_caption" />
+
+        <ImageView
+            android:id="@+id/imageView_profile_image_shape"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:elevation="2dp"
+            android:src="@drawable/circle_profile_image"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_profile_image"
+            app:layout_constraintEnd_toEndOf="@+id/imageView_profile_image"
+            app:layout_constraintStart_toStartOf="@+id/imageView_profile_image"
+            app:layout_constraintTop_toTopOf="@+id/imageView_profile_image" />
+
+        <TextView
+            android:id="@+id/textView_change_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:elevation="2dp"
+            android:padding="0dp"
+            android:text="@string/change_photo"
+            android:textColor="@color/text_color"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_profile_image" />
+
+
+        <TextView
+            android:id="@+id/textView_profile_name"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:elevation="2dp"
+            android:text="First and last name"
+            android:textColor="@color/profile_name"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_change_photo" />
+
+        <Button
+            android:id="@+id/button_upload_item"
+            style="@style/ButtonDefault"
+            android:layout_width="0dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/upload_item_button"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_profile_name" />
+
+        <ImageView
+            android:id="@+id/imageView_upload_item"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="55dp"
+            android:elevation="3dp"
+            android:padding="1dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/button_upload_item"
+            app:layout_constraintStart_toStartOf="@+id/button_upload_item"
+            app:layout_constraintTop_toTopOf="@+id/button_upload_item"
+            app:srcCompat="@drawable/ic_upload_item" />
+
+        <ImageView
+            android:id="@+id/imageView_trade_store_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:elevation="1dp"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_credit_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_upload_item" />
+
+        <ImageView
+            android:id="@+id/imageView_trade_store_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/circle_button_shape"
+            android:elevation="0dp"
+            android:scaleType="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_upload_item" />
+
+        <TextView
+            android:id="@+id/textView_trade_store"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:elevation="2dp"
+            android:text="@string/profile_trade_store_item"
+            android:textColor="@color/profile_item"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_trade_store_icon"
+            app:layout_constraintStart_toEndOf="@+id/imageView_trade_store_icon"
+            app:layout_constraintTop_toTopOf="@+id/imageView_trade_store_icon" />
+
+        <ImageView
+
+            android:layout_width="9dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="45dp"
+            android:scaleType="fitCenter"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_trade_store_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView_trade_store_icon"
+            app:srcCompat="@drawable/ic_arrow" />
+
+        <ImageView
+            android:id="@+id/imageView_payment_method_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
+            android:elevation="1dp"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_credit_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_trade_store_icon" />
+
+        <ImageView
+            android:id="@+id/imageView_payment_method_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/circle_button_shape"
+            android:elevation="0dp"
+            android:scaleType="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_trade_store_icon" />
+
+        <TextView
+            android:id="@+id/textView_payment_method"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:elevation="2dp"
+            android:text="@string/profile_payment_method"
+            android:textColor="@color/profile_item"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_payment_method_icon"
+            app:layout_constraintStart_toEndOf="@+id/imageView_payment_method_icon"
+            app:layout_constraintTop_toTopOf="@+id/imageView_payment_method_icon" />
+
+        <ImageView
+
+            android:layout_width="9dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="45dp"
+            android:scaleType="fitCenter"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_payment_method_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView_payment_method_icon"
+            app:srcCompat="@drawable/ic_arrow" />
+
+        <ImageView
+            android:id="@+id/imageView_balance_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
+            android:elevation="1dp"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_credit_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_payment_method_icon" />
+
+        <ImageView
+            android:id="@+id/imageView_balance_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/circle_button_shape"
+            android:elevation="0dp"
+            android:scaleType="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_payment_method_icon" />
+
+        <TextView
+            android:id="@+id/textView_balance"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:elevation="2dp"
+            android:text="@string/profile_balance"
+            android:textColor="@color/profile_item"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_balance_icon"
+            app:layout_constraintStart_toEndOf="@+id/imageView_balance_icon"
+            app:layout_constraintTop_toTopOf="@+id/imageView_balance_icon" />
+
+        <TextView
+            android:id="@+id/textView_balance_amount"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="45dp"
+            android:elevation="2dp"
+            android:text="$ 1580"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/profile_item"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_balance_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView_balance_icon" />
+
+        <ImageView
+            android:id="@+id/imageView_trade_history_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
+            android:elevation="1dp"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_credit_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_balance_icon" />
+
+        <ImageView
+            android:id="@+id/imageView_trade_history_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/circle_button_shape"
+            android:elevation="0dp"
+            android:scaleType="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_balance_icon" />
+
+        <TextView
+            android:id="@+id/textView_trade_history"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:elevation="2dp"
+            android:text="@string/profile_trade_history"
+            android:textColor="@color/profile_item"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_trade_history_icon"
+            app:layout_constraintStart_toEndOf="@+id/imageView_trade_history_icon"
+            app:layout_constraintTop_toTopOf="@+id/imageView_trade_history_icon" />
+
+        <ImageView
+
+            android:layout_width="9dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="45dp"
+            android:scaleType="fitCenter"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_trade_history_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView_trade_history_icon"
+            app:srcCompat="@drawable/ic_arrow" />
+
+        <ImageView
+            android:id="@+id/imageView_restore_purchase_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
+            android:elevation="1dp"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_restore"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_trade_history_icon" />
+
+        <ImageView
+            android:id="@+id/imageView_restore_purchase_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/circle_button_shape"
+            android:elevation="0dp"
+            android:scaleType="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_trade_history_icon" />
+
+        <TextView
+            android:id="@+id/textView_restore_purchase"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:elevation="2dp"
+            android:text="@string/profile_restore_purchase"
+            android:textColor="@color/profile_item"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_restore_purchase_icon"
+            app:layout_constraintStart_toEndOf="@+id/imageView_restore_purchase_icon"
+            app:layout_constraintTop_toTopOf="@+id/imageView_restore_purchase_icon" />
+
+        <ImageView
+
+            android:layout_width="9dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="45dp"
+            android:scaleType="fitCenter"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_restore_purchase_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView_restore_purchase_icon"
+            app:srcCompat="@drawable/ic_arrow" />
+
+        <ImageView
+            android:id="@+id/imageView_help_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
+            android:elevation="1dp"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_help"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_restore_purchase_icon" />
+
+        <ImageView
+            android:id="@+id/imageView_help_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/circle_button_shape"
+            android:elevation="0dp"
+            android:scaleType="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_restore_purchase_icon" />
+
+        <TextView
+            android:id="@+id/textView_help"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:elevation="2dp"
+            android:text="@string/profile_help"
+            android:textColor="@color/profile_item"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_help_icon"
+            app:layout_constraintStart_toEndOf="@+id/imageView_help_icon"
+            app:layout_constraintTop_toTopOf="@+id/imageView_help_icon" />
+
+        <ImageView
+            android:id="@+id/imageView_log_out_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@android:color/transparent"
+            android:elevation="1dp"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_log_out"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_help_icon" />
+
+        <ImageView
+            android:id="@+id/imageView_log_out_background"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/circle_button_shape"
+            android:elevation="0dp"
+            android:scaleType="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_help_icon" />
+
+        <TextView
+            android:id="@+id/textView_log_out"
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:elevation="2dp"
+            android:text="@string/profile_log_out"
+            android:textColor="@color/profile_item"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_log_out_icon"
+            app:layout_constraintStart_toEndOf="@+id/imageView_log_out_icon"
+            app:layout_constraintTop_toTopOf="@+id/imageView_log_out_icon" />
+
+        <TextView
+
+            style="@style/Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="16dp"
+            android:elevation="2dp"
+            android:text=" "
+            android:textColor="@color/profile_item"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_log_out_icon" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

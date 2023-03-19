@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="app_background">#FFFAF9FF</color>
+
+
+    <color name="caption_color_1">#FF161826</color>
+    <color name="input_text_background">#FFE8E8E8</color>
+    <color name="search_input_text_background">#FFF5F6F7</color>
+    <color name="search_input_text_hint">#FF5B5B5B</color>
+    <color name="button_color">#FF4E55D7</color>
+    <color name="circle_button_color">#FFEEEFF4</color>
+
+    <color name="nav_icon_color">#FF909090</color>
+    <color name="photo_annotation_color">#FF5B5B5B</color>
+
+    <color name="list_caption_color">#FF040402</color>
+    <color name="view_all_button_color">#FF808080</color>
+    <color name="category_in_product_background">#D8C4C4C4</color>
+    <color name="category_in_product_text_color">#FF070604</color>
+    <color name="add_product_button_background">#D8E5E9EF</color>
+
+    <color name="discount_in_product_background">#FFF93A3A</color>
+
+    <color name="profile_name">#FF3F3F3F</color>
+    <color name="profile_item">#FF040402</color>
+
+    <color name="button_text_color">#FFEAEAEA</color>
+    <color name="category_text_color">#FFA6A7AB</color>
+    <color name="transparent_button_text_color">#FF254FE6</color>
+
+    <color name="text_color">#FF808080</color>
+</resources>
