@@ -1,21 +1,27 @@
 package ru.juxlab.tt.ishoptest.ui.home
 
-import android.arch.lifecycle.ViewModelProviders
+
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.support.constraint.Group
-import android.support.design.card.MaterialCardView
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.Group
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
 import kotlinx.coroutines.launch
 import ru.juxlab.tt.ishoptest.R
 import ru.juxlab.tt.ishoptest.data.FlashSale
@@ -66,6 +72,7 @@ class HomeFragment : ScopedFragment(), AdapterView.OnItemClickListener {
         super.onActivityCreated(savedInstanceState)
 
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeFragmentViewModel::class.java)
+
         val groupContent = activity!!.findViewById<Group>(R.id.group_content)
         groupContent.visibility = View.GONE
         bindUI()
@@ -131,7 +138,7 @@ class HomeFragment : ScopedFragment(), AdapterView.OnItemClickListener {
 class CategoryListAdapter(private val myDataset: List<ProductCategory>, private val itemClickListener: AdapterView.OnItemClickListener, private val context: Context) :
     RecyclerView.Adapter<CategoryListAdapter.ObjectsListViewHolder>() {
 
-    class ObjectsListViewHolder(private val cardView: MaterialCardView) : RecyclerView.ViewHolder(cardView){
+    class ObjectsListViewHolder(private val cardView: CardView) : RecyclerView.ViewHolder(cardView){
         private val categoryNameView = cardView.findViewById<TextView>(R.id.textView_category_name)
         private val categoryImageView = cardView.findViewById<ImageView>(R.id.imageView_category_icon)
         fun bind(productCategory: ProductCategory, clickListener: AdapterView.OnItemClickListener) {
@@ -143,7 +150,7 @@ class CategoryListAdapter(private val myDataset: List<ProductCategory>, private 
                                     viewType: Int): ObjectsListViewHolder {
         // create a new view
         val cardView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.category_card, parent, false) as MaterialCardView
+            .inflate(R.layout.category_card, parent, false) as CardView
 
         return ObjectsListViewHolder(cardView)
     }
@@ -160,7 +167,7 @@ class CategoryListAdapter(private val myDataset: List<ProductCategory>, private 
 class LatestListAdapter(private val myDataset: List<Latest>, private val itemClickListener: AdapterView.OnItemClickListener, private val context: Context) :
     RecyclerView.Adapter<LatestListAdapter.ObjectsListViewHolder>() {
 
-    class ObjectsListViewHolder(private val cardView: MaterialCardView) : RecyclerView.ViewHolder(cardView){
+    class ObjectsListViewHolder(private val cardView: CardView) : RecyclerView.ViewHolder(cardView){
         private val productNameView = cardView.findViewById<TextView>(R.id.textView_product_name)
         private val categoryNameView = cardView.findViewById<TextView>(R.id.textView_category_name)
         private val priceView = cardView.findViewById<TextView>(R.id.textView_product_price)
@@ -194,7 +201,7 @@ class LatestListAdapter(private val myDataset: List<Latest>, private val itemCli
                                     viewType: Int): ObjectsListViewHolder {
         // create a new view
         val cardView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.latest_product_card, parent, false) as MaterialCardView
+            .inflate(R.layout.latest_product_card, parent, false) as CardView
 
         return ObjectsListViewHolder(cardView)
     }
@@ -211,7 +218,7 @@ class LatestListAdapter(private val myDataset: List<Latest>, private val itemCli
 class FlashSaleListAdapter(private val myDataset: List<FlashSale>, private val itemClickListener: AdapterView.OnItemClickListener, private val context: Context) :
     RecyclerView.Adapter<FlashSaleListAdapter.ObjectsListViewHolder>() {
 
-    class ObjectsListViewHolder(private val cardView: MaterialCardView) : RecyclerView.ViewHolder(cardView){
+    class ObjectsListViewHolder(private val cardView: CardView) : RecyclerView.ViewHolder(cardView){
         private val productNameView = cardView.findViewById<TextView>(R.id.textView_product_name)
         private val categoryNameView = cardView.findViewById<TextView>(R.id.textView_category_name)
         private val priceView = cardView.findViewById<TextView>(R.id.textView_product_price)
@@ -257,7 +264,7 @@ class FlashSaleListAdapter(private val myDataset: List<FlashSale>, private val i
                                     viewType: Int): ObjectsListViewHolder {
 
         val cardView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.flash_sale_card, parent, false) as MaterialCardView
+            .inflate(R.layout.flash_sale_card, parent, false) as CardView
 
         return ObjectsListViewHolder(cardView)
     }
@@ -278,7 +285,7 @@ class FlashSaleListAdapter(private val myDataset: List<FlashSale>, private val i
 class BrandsListAdapter(private val myDataset: List<Latest>, private val itemClickListener: AdapterView.OnItemClickListener, private val context: Context) :
     RecyclerView.Adapter<BrandsListAdapter.ObjectsListViewHolder>() {
 
-    class ObjectsListViewHolder(private val cardView: MaterialCardView) : RecyclerView.ViewHolder(cardView){
+    class ObjectsListViewHolder(private val cardView: CardView) : RecyclerView.ViewHolder(cardView){
         private val productNameView = cardView.findViewById<TextView>(R.id.textView_product_name)
         private val categoryNameView = cardView.findViewById<TextView>(R.id.textView_category_name)
         private val priceView = cardView.findViewById<TextView>(R.id.textView_product_price)
@@ -308,7 +315,7 @@ class BrandsListAdapter(private val myDataset: List<Latest>, private val itemCli
                                     viewType: Int): ObjectsListViewHolder {
         // create a new view
         val cardView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.latest_product_card, parent, false) as MaterialCardView
+            .inflate(R.layout.latest_product_card, parent, false) as CardView
 
         return ObjectsListViewHolder(cardView)
     }

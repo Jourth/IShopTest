@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.support.v4.app.Fragment
-import android.arch.lifecycle.ViewModelProvider
+
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import ru.juxlab.tt.ishoptest.R
 
 
@@ -19,7 +21,7 @@ class CartFragment : Fragment() {
     ): View {
         val cartViewModel =
             ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
-                CartViewModel::class.java
+                ViewModel::class.java
             )
 
 

@@ -1,13 +1,14 @@
 package ru.juxlab.tt.ishoptest.ui
 
-import android.content.Context
+
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import android.view.inputmethod.InputMethodManager
+
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import ru.juxlab.tt.ishoptest.IShopTestApplication
 import ru.juxlab.tt.ishoptest.R
 import ru.juxlab.tt.ishoptest.data.User

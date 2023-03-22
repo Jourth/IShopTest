@@ -1,10 +1,11 @@
 package ru.juxlab.tt.ishoptest.ui
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import ru.juxlab.tt.ishoptest.IShopTestApplication
 import ru.juxlab.tt.ishoptest.R
 import ru.juxlab.tt.ishoptest.data.User

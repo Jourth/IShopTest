@@ -3,22 +3,22 @@ package ru.juxlab.tt.ishoptest.ui
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.NavigationView
-import android.support.v4.text.HtmlCompat
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
-import android.text.Html
+
 import android.view.Menu
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.HtmlCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import androidx.navigation.Navigation.findNavController
+
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import ru.juxlab.tt.ishoptest.IShopTestApplication
 import ru.juxlab.tt.ishoptest.R
 import ru.juxlab.tt.ishoptest.data.User
@@ -49,22 +49,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
-        val navViewSide: NavigationView = binding.navViewSide
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val navViewSide: NavigationView = findViewById(R.id.nav_view_side)
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val toolbarCaptionView: TextView = findViewById(R.id.textView_toolbar_caption)
 
-        val toolbar: android.support.v7.widget.Toolbar = binding.toolbar
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        navController = findNavController(R.id.nav_host_fragment_activity_main)
+        navController = findNavController(this, R.id.nav_host_fragment_activity_main)
 
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_likes, R.id.navigation_cart, R.id.navigation_chat, R.id.navigation_profile
-            ), drawerLayout
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        appBarConfiguration = AppBarConfiguration.Builder(
+            R.id.navigation_home, R.id.navigation_likes, R.id.navigation_cart, R.id.navigation_chat, R.id.navigation_profile
+        ).setDrawerLayout(drawerLayout).build()
+
+        setupActionBarWithNavController(this, navController, appBarConfiguration)
+
         navView.setupWithNavController(navController)
         navViewSide.setupWithNavController(navController)
 
@@ -99,7 +99,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
 
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        //return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        return super.onSupportNavigateUp()
     }
 
     fun showUserPhoto() {
