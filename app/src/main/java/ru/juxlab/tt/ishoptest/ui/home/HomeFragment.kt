@@ -21,8 +21,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.*
 
-import kotlinx.coroutines.launch
 import ru.juxlab.tt.ishoptest.R
 import ru.juxlab.tt.ishoptest.data.FlashSale
 import ru.juxlab.tt.ishoptest.data.Latest
@@ -86,7 +86,7 @@ class HomeFragment : ScopedFragment(), AdapterView.OnItemClickListener {
 
 
 
-        viewAdapterLatest = LatestListAdapter(latestProductsList.latest, itemClickListener, activity?.applicationContext!!)
+        viewAdapterLatest = LatestListAdapter(latestProductsList.latest, itemClickListener, this)
         viewManagerLatest = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
         recyclerViewLatest = activity!!.findViewById<RecyclerView>(R.id.recyclerView_latest).apply {
@@ -113,7 +113,7 @@ class HomeFragment : ScopedFragment(), AdapterView.OnItemClickListener {
             adapter = viewAdapterBrands
         }
 
-        viewAdapterCategories = CategoryListAdapter(categoriesList, itemClickListener, activity?.applicationContext!!)
+        viewAdapterCategories = CategoryListAdapter(categoriesList, itemClickListener, this)
         viewManagerCategories = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
 
         recyclerViewCategories = activity!!.findViewById<RecyclerView>(R.id.recyclerView_categories).apply {
@@ -135,7 +135,7 @@ class HomeFragment : ScopedFragment(), AdapterView.OnItemClickListener {
 
 }
 
-class CategoryListAdapter(private val myDataset: List<ProductCategory>, private val itemClickListener: AdapterView.OnItemClickListener, private val context: Context) :
+class CategoryListAdapter(private val myDataset: List<ProductCategory>, private val itemClickListener: AdapterView.OnItemClickListener, private val context: CoroutineScope) :
     RecyclerView.Adapter<CategoryListAdapter.ObjectsListViewHolder>() {
 
     class ObjectsListViewHolder(private val cardView: CardView) : RecyclerView.ViewHolder(cardView){
@@ -164,10 +164,10 @@ class CategoryListAdapter(private val myDataset: List<ProductCategory>, private 
     override fun getItemCount() = myDataset.size
 }
 
-class LatestListAdapter(private val myDataset: List<Latest>, private val itemClickListener: AdapterView.OnItemClickListener, private val context: Context) :
+class LatestListAdapter(private val myDataset: List<Latest>, private val itemClickListener: AdapterView.OnItemClickListener, private val coroutineScope: CoroutineScope) :
     RecyclerView.Adapter<LatestListAdapter.ObjectsListViewHolder>() {
 
-    class ObjectsListViewHolder(private val cardView: CardView) : RecyclerView.ViewHolder(cardView){
+    class ObjectsListViewHolder(private val cardView: CardView, val coroutineScope: CoroutineScope) : RecyclerView.ViewHolder(cardView){
         private val productNameView = cardView.findViewById<TextView>(R.id.textView_product_name)
         private val categoryNameView = cardView.findViewById<TextView>(R.id.textView_category_name)
         private val priceView = cardView.findViewById<TextView>(R.id.textView_product_price)
@@ -182,19 +182,27 @@ class LatestListAdapter(private val myDataset: List<Latest>, private val itemCli
             formatter.maximumFractionDigits = 0
             priceView.text = "$ " + formatter.format(latest.price)
 
-            val executor = Executors.newSingleThreadExecutor()
-            val handler = Handler(Looper.getMainLooper())
-
-            executor.execute {
-                try{
-                    val bitmap = BitmapFactory.decodeStream(URL(latest.imageUrl).openStream())
-                    handler.post {
-                        productImageView.setImageBitmap(bitmap)
-                    }
-                }
-                catch (e: Exception) {
+            GlobalScope.launch (Dispatchers.IO) {
+                val bitmap = BitmapFactory.decodeStream(URL(latest.imageUrl).openStream())
+                withContext(Dispatchers.Main){
+                    productImageView.setImageBitmap(bitmap)
                 }
             }
+
+//            val executor = Executors.newSingleThreadExecutor()
+//            val handler = Handler(Looper.getMainLooper())
+//
+//
+//            executor.execute {
+//                try{
+//                    val bitmap = BitmapFactory.decodeStream(URL(latest.imageUrl).openStream())
+//                    handler.post {
+//                        productImageView.setImageBitmap(bitmap)
+//                    }
+//                }
+//                catch (e: Exception) {
+//                }
+//            }
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup,
@@ -203,7 +211,7 @@ class LatestListAdapter(private val myDataset: List<Latest>, private val itemCli
         val cardView = LayoutInflater.from(parent.context)
             .inflate(R.layout.latest_product_card, parent, false) as CardView
 
-        return ObjectsListViewHolder(cardView)
+        return ObjectsListViewHolder(cardView, coroutineScope)
     }
 
     override fun onBindViewHolder(holder: ObjectsListViewHolder, position: Int) {
@@ -244,19 +252,25 @@ class FlashSaleListAdapter(private val myDataset: List<FlashSale>, private val i
             formatter.minimumFractionDigits = 0
             discountView.text = formatter.format(flashSale.discount) + cardView.resources.getString(R.string.discount_postfix)
 
-            val executor = Executors.newSingleThreadExecutor()
-            val handler = Handler(Looper.getMainLooper())
-
-            executor.execute {
-                try{
-                    val bitmap = BitmapFactory.decodeStream(URL(flashSale.imageUrl).openStream())
-                    handler.post {
-                        productImageView.setImageBitmap(bitmap)
-                    }
-                }
-                catch (e: Exception) {
+            GlobalScope.launch (Dispatchers.IO) {
+                val bitmap = BitmapFactory.decodeStream(URL(flashSale.imageUrl).openStream())
+                withContext(Dispatchers.Main){
+                    productImageView.setImageBitmap(bitmap)
                 }
             }
+//            val executor = Executors.newSingleThreadExecutor()
+//            val handler = Handler(Looper.getMainLooper())
+//
+//            executor.execute {
+//                try{
+//                    val bitmap = BitmapFactory.decodeStream(URL(flashSale.imageUrl).openStream())
+//                    handler.post {
+//                        productImageView.setImageBitmap(bitmap)
+//                    }
+//                }
+//                catch (e: Exception) {
+//                }
+//            }
         }
     }
 
@@ -296,19 +310,26 @@ class BrandsListAdapter(private val myDataset: List<Latest>, private val itemCli
             categoryNameView.text = latest.category
             priceView.text = latest.price.toString()
 
-            val executor = Executors.newSingleThreadExecutor()
-            val handler = Handler(Looper.getMainLooper())
-
-            executor.execute {
-                try{
-                    val bitmap = BitmapFactory.decodeStream(URL(latest.imageUrl).openStream())
-                    handler.post {
-                        productImageView.setImageBitmap(bitmap)
-                    }
-                }
-                catch (e: Exception) {
+            GlobalScope.launch (Dispatchers.IO) {
+                val bitmap = BitmapFactory.decodeStream(URL(latest.imageUrl).openStream())
+                withContext(Dispatchers.Main){
+                    productImageView.setImageBitmap(bitmap)
                 }
             }
+
+//            val executor = Executors.newSingleThreadExecutor()
+//            val handler = Handler(Looper.getMainLooper())
+//
+//            executor.execute {
+//                try{
+//                    val bitmap = BitmapFactory.decodeStream(URL(latest.imageUrl).openStream())
+//                    handler.post {
+//                        productImageView.setImageBitmap(bitmap)
+//                    }
+//                }
+//                catch (e: Exception) {
+//                }
+//            }
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup,
